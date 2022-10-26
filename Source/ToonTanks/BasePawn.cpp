@@ -29,6 +29,8 @@ ABasePawn::ABasePawn()
 void ABasePawn::HandleDestruction()
 {
 	// TODO: Visual/sound effects
+	if (DeathParticles)
+		UGameplayStatics::SpawnEmitterAtLocation(this, DeathParticles, GetActorLocation(), GetActorRotation());
 }
 
 void ABasePawn::RotateTurret(const FVector& LookAtTarget)
